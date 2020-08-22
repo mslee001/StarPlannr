@@ -12,4 +12,99 @@
     margin: 0 auto; } }
 
 
-    
+    /* nav styling */
+
+
+.topbar-sticky-shrink {
+  padding: 2rem;
+  transition: padding 0.25s ease;
+  background: #2c3840;
+}
+
+.topbar-sticky-shrink .menu {
+  background: #2c3840;
+}
+
+.is-stuck .topbar-sticky-shrink {
+  padding: 1rem;
+  transition: padding 0.25s ease;
+}
+
+[data-sticky] {
+  width: 100%;
+}
+
+.menu a, .menu button, .menu input, .menu select {
+  color: aliceblue;
+}
+.menu a:hover {
+
+color: rgb(219, 156, 48);
+}
+
+
+/* .topbar-sticky-shrink-header {
+  padding: 10rem 0;
+  background: url("https://placehold.it/2000x500&text=this is a header") center center no-repeat;
+  background-size: cover;
+} */
+
+/*-----------------------------------------------------------*/
+
+/* footer syling */
+
+.social-footer {
+  color: aliceblue;
+  padding: 50px;
+  background: #8a8a8a;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.social-footer .social-footer-icons li:last-of-type {
+  margin-right: 0;
+}
+
+.social-footer .social-footer-icons .fa {
+  font-size: 1.3rem;
+  color: #fefefe;
+}
+
+.social-footer .social-footer-icons .fa:hover {
+  color: #4a4a4a;
+  transition: color 0.3s ease-in;
+}
+
+
+
+/* HEADER STYLING */
+
+
+.hero-section {
+  background: url("https://www.nasa.gov/sites/default/files/thumbnails/image/darkrift-orig_full.jpg") 50% no-repeat;
+  background-size: cover;
+  height: 60vh;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hero-section .hero-section-text {
+  color: #fefefe;
+  text-shadow: 1px 1px 2px #0a0a0a;
+}
+
