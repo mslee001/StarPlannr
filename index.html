@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/style.css" />
     <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWu9ghvA8cjPUWkmgBwUTgUAVT4hjSMzM&libraries=places"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
 
     <link
@@ -102,9 +103,8 @@
             <div class="grid-x grid-padding-x">
               <div class="large-12 cell">
                 <label>Location</label>
-                <input type="text" placeholder="City, State" /><a
-                  href="#"
-                  class="success button" id="enter">Enter</a>
+                <input id="location" type="text" placeholder="City, State"/>
+                <a href="#" class="success button" id="enter">Enter</a>
               </div>
             </div>
 
