@@ -18,8 +18,20 @@ function getOpenWeatherURL(){
         console.log(response);
         var currentCityLat = response.city.coord.lat
         var currentCityLong = response.city.coord.lon
+        var targetDateIndex = 0
+        
+        var currentCityCloud = response.list[targetDateIndex].clouds.all
 
-       
+        var currentCityHigh = response.list[targetDateIndex].main.temp_min;
+        var currentCityLow = response.list[targetDateIndex].main.temp_max;
+        var currentCityHighF = (((currentCityHigh-273.15)*1.8)+32).toFixed(0);
+        var currentCityLowF = (((currentCityLow-273.15)*1.8)+32).toFixed(0);
+
+
+        $("#weather").append("   High of " + currentCityHighF + "℉  &  Low of " + currentCityLowF + "℉")
+
+        $("#cloudCover").append("   " + currentCityCloud)
+
         getAstronomyApi();
 
         function getAstronomyApi(){
@@ -31,14 +43,18 @@ function getOpenWeatherURL(){
                 url: astronomyApiURL,
                 method: "GET"
             }).then(function(response){
+                $("#moonrise").append("   " + response.moonrise);
+                $("#moonset").append("   " + response.moonset);
+                $("#sunrise").append("   " + response.sunrise);
+                $("#sunset").append("   " + response.sunset);
                 console.log(response);
             })
         };
     })
 }    
 
-// moonphase method/API found at http://www.wdisseny.com/lluna/?lang=en
-// Currently defaults to today, we can connect this to the date picker 
+// moonphase method/API found at http://www.wdisseny.com/lluna/?lang=en 
+// XML call. Currently defaults to today, we can connect this to the date picker 
 
 function moonPhaseCall(obj,callback){
     var gets=[]
@@ -76,6 +92,7 @@ var configMoon = {
     texturize	:true, 
 }
 moonPhaseCall(configMoon, moonHTML);
+
 
 
 
