@@ -108,3 +108,42 @@ color: rgb(219, 156, 48);
   text-shadow: 1px 1px 2px #0a0a0a;
 }
 
+/* OUTPUT TABLE */
+
+
+.output-table {
+  background-color: #fefefe;
+  border: solid 1px #cacaca;
+  width: 100%;
+  list-style-type: none;
+}
+
+.output-table li {
+  border-bottom: solid 1px #cacaca;
+  padding: 0.875rem 1.125rem;
+  text-align:left;
+}
+
+.output-table li:last-child {
+  border-bottom: 0;
+}
+
+.output-table .title {
+  background-color: #2c3840;
+  color: #fefefe;
+  border-bottom: 0;
+  text-align:center;
+}
+
+.output-table .date {
+  background-color: #e6e6e6;
+  font-size: 2rem;
+  border-bottom: 0;
+  text-align:center;
+}
+
+
+.output-table :last-child {
+  margin-bottom: 0;
+}
+
