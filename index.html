@@ -14,19 +14,64 @@
     />
     <link rel="stylesheet" href="assets/style.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    
   </head>
+  
+<!-- nave header -->
+  <nav>
+    <header id="header" class="topbar-sticky-shrink-header">
+    </header>
+    
+    <div data-sticky-container>
+      <div data-sticky data-margin-top='0' data-top-anchor="header:bottom" data-btm-anchor="content:bottom">
+        <div class="top-bar topbar-sticky-shrink">
+          <div class="top-bar-title">
+            <img src="https://placehold.it/150x38" alt="" />
+          </div>
+          <div class="top-bar-right">
+            <ul class="menu">
+              <li><a href="#">HOME</a></li>
+              <li><a href="#">LIGHT POLLUTION MAP</a></li>
+              <li><a href="#">IMAGES</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO IMAGE -->
+
+  <div class="hero-section">
+    <div class="hero-section-text">
+      <h1>STARPLANNR</h1>
+      <h5>THE ONLY APP TO HELP YOU SEE THE STARS</h5>
+    </div>
+  </div>
+  
+  
+  
+
+  <!-- main container -->
   <body>
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <h1>Welcome to STARPLANNR</h1>
-        </div>
+      
       </div>
 
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
-          <div class="callout">
-            <h3>WELCOME TO THE STARS</h3>
+          <div class="callout" id="aboutApp">
+            <h3>welcome...</h3>
+            <p>how to use the app etc...</p>
+            <h3>give me some styling!</h3>
           </div>
         </div>
       </div>
@@ -64,16 +109,21 @@
           </form>
         </div>
         <div class="large-8 medium-8 cell">
-          <h5>OUTPUT BLOCK</h5>
-          <div class="outputData">
-          <div id="viewingScore"></div>
-          <div id="weather"></div>
-          <div id="cloudCover"></div>
-          <div id="sunrise"></div>
-          <div id="sunset"></div>
-          <div id="moonPhase"></div>
-          <div id="where-is-iss"></div>
-        </div>
+
+          <ul class="output-table outputData">
+            <li class="title">VIEWING FORECAST</li>
+            <li class="date">[DATE]</li>
+            <li>Overall Viewing Score:<span id="viewingScore"></span></li>
+            <li>Weather:<span id="weather"></span></li>
+            <li>Cloud Cover:<span id="cloudCover"></span></li>
+            <li>Sunrise:<span id="sunrise"></span></li>
+            <li>Sunset:<span id="sunset"></span></li>
+            <li>Moonrise:<span id="moonrise"></span></li>
+            <li>Moonset:<span id="moonset"></span></li>
+            <li>Moonphase:<span id="moonPhase"></span></li>
+            <li>ISS Location:<span id="where-is-iss"></span></li>
+            
+          </ul>
 
         </div>
 
@@ -97,4 +147,18 @@
       crossorigin="anonymous"
     ></script>
   </body>
+
+  <footer class="social-footer">
+    <div class="social-footer-left">
+      <a href="#"><img class="logo" src="https://placehold.it/150x30"></a>
+    </div>
+    <div class="social-footer-icons">
+      <ul class="menu simple">
+        <li><p>© Copyright STARPLANNR 2020.</p></li>
+        
+      </ul>
+    </div>
+  </footer>
+  
+  
 </html>
