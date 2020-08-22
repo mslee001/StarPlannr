@@ -1,6 +1,6 @@
 $(document).ready(function () {
     console.log("test");
-    getNasaImg()
+    getNasaImg();
 
 //function to get the NASA Image of the day
 function getNasaImg(){
@@ -31,7 +31,18 @@ var altField = $("#unixDate").datepicker("option", "altField");
 $("#date").datepicker("option", "altFormat", "@");
 $("#unixDate").datepicker("option", "altField", "#unixDate");
 
-//value to get the unix timestamp $("#unixDate").val();
+//value to get the unix timestamp is: $("#unixDate").val();
+
+//Google autocomplete for location
+var input = document.getElementById("location");
+var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
+google.maps.event.addListener(autocomplete, 'place_changed', function(){
+    //place is an object that we can extract both city and state from
+    var place = autocomplete.getPlace();
+    console.log(place);
+    console.log(place.address_components[0].long_name);
+    console.log(place.address_components[2].short_name);
+ })
 
 
 
