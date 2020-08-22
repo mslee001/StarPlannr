@@ -13,6 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="assets/style.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </head>
   <body>
     <div class="grid-container">
@@ -31,7 +32,7 @@
       </div>
 
       <div class="grid-x grid-padding-x">
-        <div class="large-8 medium-8 cell">
+        <div class="large-4 medium-4 cell">
           <div class="grid-x grid-padding-x">
             <div class="large-12 cell"></div>
           </div>
@@ -45,9 +46,7 @@
                 <label>Location</label>
                 <input type="text" placeholder="City, State" /><a
                   href="#"
-                  class="success button"
-                  >Enter</a
-                >
+                  class="success button">Enter</a>
               </div>
             </div>
 
@@ -64,9 +63,28 @@
             </div>
           </form>
         </div>
-        <div class="large-4 medium-4 cell">
+        <div class="large-8 medium-8 cell">
           <h5>OUTPUT BLOCK</h5>
+          <div class="outputData">
+          <div id="viewingScore"></div>
+          <div id="weather"></div>
+          <div id="cloudCover"></div>
+          <div id="sunrise"></div>
+          <div id="sunset"></div>
+          <div id="moonPhase"></div>
+          <div id="where-is-iss"></div>
         </div>
+        </div>
+
+        <!-- NASA Image of the Day -->
+        <div class="grid-x grid-padding-x">
+          <div class="large-12 cell">
+              <p id="nasa-title"></p>
+              <img id="nasa-iotd"></img>
+              <p id="nasa-explanation"></p>
+          </div>
+        </div>
+        
       </div>
     </div>
 
