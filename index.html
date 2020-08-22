@@ -12,8 +12,12 @@
       integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I="
       crossorigin="anonymous"
     />
+    <link rel = "stylesheet" href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
     <link rel="stylesheet" href="assets/style.css" />
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -86,12 +90,21 @@
 
           <h5>INPUT FORM</h5>
           <form>
+            <!-- Date input field -->
+            <div class="grid-x grid-padding-x">
+              <div class="large-12 cell">
+                <label>Date</label>
+                <input type="text" name="date" id="date">
+                <p id="unixDate"></p>
+              </div>
+            </div>
+
             <div class="grid-x grid-padding-x">
               <div class="large-12 cell">
                 <label>Location</label>
                 <input type="text" placeholder="City, State" /><a
                   href="#"
-                  class="success button">Enter</a>
+                  class="success button" id="enter">Enter</a>
               </div>
             </div>
 
