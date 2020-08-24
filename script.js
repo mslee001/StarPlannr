@@ -1,9 +1,33 @@
+$(document).ready(function () {
 // Variables for our two chained API calls (set to an example until we figureout how we want to format inputs)
 
-var userCity = "Chicago"
+var userCity = "";
+var userState = "";
 
-var userState = "Illinois"
+//datepicker
+$("#date").datepicker({
+    altFormat: "@",
+    altField: "#unixDate"
+});
 
+//unix timestamp is saved as an altFormat to a hidden altField
+var altFormat = $("#date").datepicker("option", "altFormat");
+var altField = $("#unixDate").datepicker("option", "altField");
+$("#date").datepicker("option", "altFormat", "@");
+$("#unixDate").datepicker("option", "altField", "#unixDate");
+
+//value to get the unix timestamp is: $("#unixDate").val();
+
+//Google autocomplete for the location field
+var input = document.getElementById("location");
+var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
+google.maps.event.addListener(autocomplete, 'place_changed', function(){
+    //"place" is the object that we can extract both city and state from
+    var place = autocomplete.getPlace();
+    console.log(place);
+    // console.log(place.address_components[0].long_name); //city
+    // console.log(place.address_components[2].long_name); //state
+ })
 
 // API calls to gather cloud cover, moonrise, moonset, sunrise, sunset
 
@@ -92,7 +116,7 @@ var configMoon = {
     texturize	:true, 
 }
 
-//function to clear the output fields so the values don't keep adding to the fields
+//function to clear the output fields so the values don't keep appending to the fields
 function clearOutput() {
     $("#viewingScore").text("");
     $("#weather").text("");
@@ -109,10 +133,17 @@ function clearOutput() {
 //click event listener to run the API calls when the user hits enter
 $("#enter").click(function(event) {
     event.preventDefault();
+
+    var place = autocomplete.getPlace(); //gets the Google "place" object
+    userCity = place.address_components[0].long_name; //city from place object
+    userState= place.address_components[2].long_name; //state from place object
+
     clearOutput();
     getOpenWeatherURL();
     moonPhaseCall(configMoon, moonHTML);
 
+    $(".date").text($("#date").val()); //adds the date to the output date field
 })
 
 
+})
