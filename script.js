@@ -7,10 +7,10 @@ var userState = "Illinois"
 
 // API calls to gather cloud cover, moonrise, moonset, sunrise, sunset
 
-getOpenWeatherURL();
-function getOpenWeatherURL(){
-    var openWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + userCity + "," + userState + "&appid=a45736dce96af4ff411de1c549396bc3"
 
+function getOpenWeatherURL(){
+    var openWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + userCity + "," + userState + "&appid=a45736dce96af4ff411de1c549396bc3&units=imperial"
+    
     $.ajax({
         url: openWeatherURL,
         method: "GET"
@@ -22,10 +22,10 @@ function getOpenWeatherURL(){
         
         var currentCityCloud = response.list[targetDateIndex].clouds.all
 
-        var currentCityHigh = response.list[targetDateIndex].main.temp_min;
-        var currentCityLow = response.list[targetDateIndex].main.temp_max;
-        var currentCityHighF = (((currentCityHigh-273.15)*1.8)+32).toFixed(0);
-        var currentCityLowF = (((currentCityLow-273.15)*1.8)+32).toFixed(0);
+        var currentCityHighF = response.list[targetDateIndex].main.temp_min;
+        var currentCityLowF = response.list[targetDateIndex].main.temp_max;
+        // var currentCityHighF = (((currentCityHigh-273.15)*1.8)+32).toFixed(0);
+        // var currentCityLowF = (((currentCityLow-273.15)*1.8)+32).toFixed(0);
 
 
         $("#weather").append("   High of " + currentCityHighF + "℉  &  Low of " + currentCityLowF + "℉")
@@ -91,8 +91,28 @@ var configMoon = {
     shadeColor	:"black", 
     texturize	:true, 
 }
-moonPhaseCall(configMoon, moonHTML);
 
+//function to clear the output fields so the values don't keep adding to the fields
+function clearOutput() {
+    $("#viewingScore").text("");
+    $("#weather").text("");
+    $("#cloudCover").text("");
+    $("#sunrise").text("");
+    $("#sunset").text("");
+    $("#moonrise").text("");
+    $("#moonset").text("");
+    $("#moonPhase").text("");
+    $("#where-is-iss").text("");
 
+}
+
+//click event listener to run the API calls when the user hits enter
+$("#enter").click(function(event) {
+    event.preventDefault();
+    clearOutput();
+    getOpenWeatherURL();
+    moonPhaseCall(configMoon, moonHTML);
+
+})
 
 
