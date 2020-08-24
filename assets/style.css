@@ -147,3 +147,27 @@ color: rgb(219, 156, 48);
   margin-bottom: 0;
 }
 
+form{
+  background: url(https://lh3.googleusercontent.com/Ts_JDDrH_7Iat5_SDixVs02JU4qT-HaQhTSmg0bG6BUcNrdYCpFkW4bTj8y5_csC)
+}
+
+h3{
+    font-family: 'Codystar', cursive;
+  font-weight: bold;
+}
+
+h5{
+  font-family: 'Codystar', cursive;
+  font-weight: bold; 
+}
+
+label{
+  color: whitesmoke;
+  
+}
+
+.title {
+  background: url(https://lh3.googleusercontent.com/Ts_JDDrH_7Iat5_SDixVs02JU4qT-HaQhTSmg0bG6BUcNrdYCpFkW4bTj8y5_csC)
+
+}
+
