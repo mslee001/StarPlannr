@@ -33,24 +33,45 @@ google.maps.event.addListener(autocomplete, 'place_changed', function(){
 
 
 function getOpenWeatherURL(){
+
+    var spaceStationLocURL = "http://api.open-notify.org/iss-now.json"
+
+    $.ajax({
+         url: spaceStationLocURL,
+         method: "GET"
+    }).then(function(response){
+         console.log(response)
+         $("#where-is-iss").append("   Longitude of  " + response.iss_position.longitude + "   Latitude of " + response.iss_position.latitude)
+
+    })
+    
+
+    // initiating our chain of ajax calls that are dependant on one another
+
     var openWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + userCity + "," + userState + "&appid=a45736dce96af4ff411de1c549396bc3&units=imperial"
+    
     
     $.ajax({
         url: openWeatherURL,
         method: "GET"
     }).then(function(response) {
         console.log(response);
-        var currentCityLat = response.city.coord.lat
-        var currentCityLong = response.city.coord.lon
-        var targetDateIndex = 0
-        
-        var currentCityCloud = response.list[targetDateIndex].clouds.all
-
+        var currentCityLat = response.city.coord.lat;
+        var currentCityLong = response.city.coord.lon;
+        var targetDateIndex = 0;
+        var currentCityCloud = response.list[targetDateIndex].clouds.all;
         var currentCityHighF = response.list[targetDateIndex].main.temp_min;
         var currentCityLowF = response.list[targetDateIndex].main.temp_max;
-        // var currentCityHighF = (((currentCityHigh-273.15)*1.8)+32).toFixed(0);
-        // var currentCityLowF = (((currentCityLow-273.15)*1.8)+32).toFixed(0);
 
+        if (currentCityCloud < 20) {
+            $("#viewingScore").html('<i class="fas fa-circle good"></i>');
+        } else if (20 <= currentCityCloud < 50) {
+            $("#viewingScore").html('<i class="fas fa-circle fair"></i>');
+        } else if (50 <= currentCityCloud < 70) {
+            $("#viewingScore").html('<i class="fas fa-circle ok"></i>');
+        } else if (70 <= currentCityCloud) {
+            $("#viewingScore").html('<i class="fas fa-circle bad"></i>');
+        }
 
         $("#weather").append("   High of " + currentCityHighF + "℉  &  Low of " + currentCityLowF + "℉")
 
@@ -71,7 +92,22 @@ function getOpenWeatherURL(){
                 $("#moonset").append("   " + response.moonset);
                 $("#sunrise").append("   " + response.sunrise);
                 $("#sunset").append("   " + response.sunset);
-                console.log(response);
+                console.log(response);  
+            });
+
+            var issPassesURL = "http://api.open-notify.org/iss-pass.json?lat=" + currentCityLat + "&lon=" + currentCityLong + "&n=3"
+
+            $.ajax({
+                url: issPassesURL,
+                method: "GET"
+            }).then(function(response){
+                var firstResponse = moment(response.response[0].risetime).format('MMMM Do YYYY, h:mm a')
+                var secondResponse = moment(response.response[1].risetime).format('MMMM Do YYYY, h:mm a')
+                var thirdResponse = moment(response.response[2].risetime).format('MMMM Do YYYY, h:mm a')
+
+                $("#iss-passes").append("   The next ISS pass will begin at " + firstResponse + 
+                "    The following ISS pass will begin at " + secondResponse +
+                "   The following will begin at " + thirdResponse );
             })
         };
     })
@@ -127,7 +163,7 @@ function clearOutput() {
     $("#moonset").text("");
     $("#moonPhase").text("");
     $("#where-is-iss").text("");
-
+    $("#iss-passes").text("");
 }
 
 //click event listener to run the API calls when the user hits enter
