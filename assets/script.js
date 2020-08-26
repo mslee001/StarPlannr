@@ -11,7 +11,7 @@ $(document).ready(function () {
 
 //function to get the NASA Image of the day
 function getNasaImg(){
-    var queryURL = "https:api.nasa.gov/planetary/apod?hd=true&date=" + today + "&api_key=jdk7SmRbb6bkLwpaMmmzVERUgoNcZwqumtNpdzch";
+    var queryURL = "https://api.nasa.gov/planetary/apod?hd=true&date=" + today + "&api_key=jdk7SmRbb6bkLwpaMmmzVERUgoNcZwqumtNpdzch";
 
 $.ajax({
     url: queryURL,
