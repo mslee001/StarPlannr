@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STARPLANNR</title>
+    <title>STARPLANNR IMAGES</title>
 
     <link
       rel="stylesheet"
@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel = "stylesheet" href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
-    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWu9ghvA8cjPUWkmgBwUTgUAVT4hjSMzM&libraries=places"></script>
@@ -43,8 +43,8 @@
           <div class="top-bar-right">
             <ul class="menu">
               <li><a href="#">HOME</a></li>
-              <li><a href="assets/lightmap.html">LIGHT POLLUTION MAP</a></li>
-              <li><a href="assets/images.html">IMAGES</a></li>
+              <li><a href="#map-block">LIGHT POLLUTION MAP</a></li>
+              <li><a href="#image-block">IMAGES</a></li>
               
             </ul>
           </div>
@@ -58,7 +58,7 @@
   <div class="hero-section">
     <div class="hero-section-text">
       <h1>STARPLANNR</h1>
-      <h5>THE ONLY APP TO HELP YOU SEE THE STARS</h5>
+      <h5>Global Light Pollution Map</h5>
     </div>
   </div>
   
@@ -68,6 +68,8 @@
   <!-- main container -->
   <body>
     <div class="grid-container">
+
+
       
 
       <div class="grid-x grid-padding-x">
@@ -80,118 +82,73 @@
         </div>
       </div>
 
-      <!-- INPUT FORM -->
-
-
-      
-        <div class="grid-x grid-padding-x">
-          <div class="large-12 medium-12 cell" id="inputBlock">
-
-           
-
-            <!-- <h5>INPUT FORM</h5> -->
-            <form>
-              <div class="large-6 medium-6 cell">
-                  <label>Date</label>
-                  <input type="text" name="date" id="date" placeholder="mm/dd/yy">
-                  <p id="unixDate"></p>
-                </div>
-              
-    
-              
-                <div class="large-6 cell">
-                  <label>Location</label>
-                  <input id="location" type="text" placeholder="City, State"/>
-                  
-                    <button type="button" class="success button" id="enter">ENTER</button>
-                  
-                </div>
-             
-            </form> 
-
+      <!-- <div class="grid-x grid-padding-x">
+        <div class="large-4 medium-4 cell">
+          <div class="grid-x grid-padding-x">
+            <div class="large-12 cell"></div>
           </div>
-        </div>
 
-        <!-- <hr /> -->
+          <hr/>
 
+          
+
+        </div> -->
+
+        
        
-      
+    
 
-      <div class="grid-x grid-padding-x">
 
-        <div class="large-6 medium-6 cell" id="currentData">
+        <!----Image Gallery-->
 
-          <ul class="output-table outputData">
-            <li class="title">TODAYS DATA</li>
-            <li class="date">[DATE]</li>
-            <li>Sunrise:<span id="sunrise"></span></li>
-            <li>Sunset:<span id="sunset"></span></li>
-            <li>Moonrise:<span id="moonrise"></span></li>
-            <li>Moonset:<span id="moonset"></span></li>
-            <li>Moonphase:<span id="moonPhase"></span></li>
-            <li>ISS Location:<span id="where-is-iss"></span></li>
-            <li>ISS Passes:<span id="iss-passes"></span></li>
-
-            
-          </ul>
-
-        </div>
-        
-        
-
-            <!-- FORECAST BLOCK -->
-
-        <div class="large-6 medium-6 cell" id="forecastData">
-
-          <ul class="output-table outputData">
-            <li class="title">VIEWING FORECAST</li>
-            <li class="date">[DATE]</li>
-            <li>Overall Viewing Score:<span id="viewingScore"></span></li>
-            <li>Weather:<span id="weather"></span></li>
-            <li>Cloud Cover:<span id="cloudCover"></span></li>
-            <li>Sunrise:<span id="sunrise"></span></li>
-            <li>Sunset:<span id="sunset"></span></li>
-            <li>Moonrise:<span id="moonrise"></span></li>
-            <li>Moonset:<span id="moonset"></span></li>
-            <li>Moonphase:<span id="moonPhase"></span></li>
-            <li>ISS Location:<span id="where-is-iss"></span></li>
-            
-          </ul>
-
-        </div>
+        <!-- <div class="row main-links">
+          <div class="small-12 medium-4 columns">
+            <div class="title-box">
+              <h4 class="title-box-title">Image 1</h4>
+            </div>
+            <img src="https://placehold.it/400x300">
+          </div>
+          <div class="small-12 medium-4 columns">
+            <div class="title-box">
+              <h4 class="title-box-title">Image 2</h4>
+            </div>
+            <img src="https://placehold.it/400x300">
+          </div>
+          <div class="small-12 medium-4 columns">
+            <div class="title-box">
+              <h4 class="title-box-title">Image 3</h4>
+            </div>
+            <img src="https://placehold.it/400x300">
+          </div>
+        </div> -->
         
       </div>
     </div>
 
-       <!-- map section-->
-       <div id="map-block">
-        <div class="map-container">
-          <iframe class="responsive-iframe" src="https://www.lightpollutionmap.info/#zoom=3.53&lat=5367736&lon=-11555584&layers=B0FFFFFTFFFFFFFFF"></iframe>
-        </div>
-        
-    </div>
+       
 
     <!-- Image section-->
 
     <div id="image-block">
-      <h2>NASA Image of The Day</h2>
       <div class="grid-x grid-padding-x" id="">
         <!-- NASA Image of the Day -->
         <div class="medium-6 cell" id="nasa_image">
-          <img id="nasa-iotd"></img>
+          <h2>NASA Image of The Day</h2>
           <p id="nasa-title"></p>
-          
-         
+          <img id="nasa-iotd"></img>
+          <p id="nasa-explanation"></p>
       </div>
 
       <div class="medium-6 cell" id="2image-block">
         <div class="medium-6-cell">
-          <p id="nasa-explanation"></p>
+          <img id="" src="https://placehold.it/400x400"></img>
         </div>
       </div>
     </div>
   </div>
   <!--end image section-->
+
+  
 
     <script src="script.js"></script>
     <script src="assets/script.js"></script>
