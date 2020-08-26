@@ -4,8 +4,7 @@ $(document).ready(function () {
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');
     var yyyy = today.getFullYear();
-    today = "2020-08-23";
-    // today = yyyy + "-" + mm + "-" + dd;
+    today = yyyy + "-" + mm + "-" + dd;
     console.log(today);
 
     getNasaImg();
