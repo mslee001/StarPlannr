@@ -1,10 +1,18 @@
 $(document).ready(function () {
+    //Get today's date for the NASA Image of the Day
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    today = "2020-08-23";
+    // today = yyyy + "-" + mm + "-" + dd;
+    console.log(today);
 
     getNasaImg();
 
 //function to get the NASA Image of the day
 function getNasaImg(){
-var queryURL = "https:api.nasa.gov/planetary/apod?hd=true&api_key=jdk7SmRbb6bkLwpaMmmzVERUgoNcZwqumtNpdzch";
+    var queryURL = "https:api.nasa.gov/planetary/apod?hd=true&date=" + today + "&api_key=jdk7SmRbb6bkLwpaMmmzVERUgoNcZwqumtNpdzch";
 
 $.ajax({
     url: queryURL,
@@ -14,7 +22,19 @@ $.ajax({
 
     $("#nasa-title").text(response.title);
     $("#nasa-explanation").text(response.explanation);
-    $("#nasa-iotd").attr("src", response.url);
+    console.log(response.media_type);
+    if (response.media_type == "video") {
+        console.log("true");
+        var video = $("<iframe>");
+        video.css({ "width": "520", "height": "415" });
+        video.attr("src", response.url)
+        $("#nasa-iotd").append(video);
+    } else if (response.media_type == "image") {
+        var img = $("<img>");
+        img.attr("src", response.url)
+        $("#nasa-iotd").append(img);
+        $("#nasa-iotd").attr("src", response.url);
+    }
 })
 }
 
