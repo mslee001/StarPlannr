@@ -32,7 +32,6 @@ $.ajax({
         var img = $("<img>");
         img.attr("src", response.url)
         $("#nasa-iotd").append(img);
-        $("#nasa-iotd").attr("src", response.url);
     }
 })
 }
