@@ -37,12 +37,12 @@
       <div data-sticky data-margin-top='0' data-top-anchor="header:bottom" data-btm-anchor="content:bottom">
         <div class="top-bar topbar-sticky-shrink">
           <div class="top-bar-title logo-header">
-            <h4>STARPLANNR</h4>
+            <h4><a href="index.html">STARPLANNR</a></h4>
             <!-- <img src="https://placehold.it/150x38" alt="" /> -->
           </div>
           <div class="top-bar-right">
             <ul class="menu">
-              <li><a href="#">HOME</a></li>
+              <li><a href="index.html">HOME</a></li>
               <li><a href="assets/lightmap.html">LIGHT POLLUTION MAP</a></li>
               <li><a href="assets/images.html">IMAGES</a></li>
               
@@ -92,15 +92,17 @@
             <!-- <h5>INPUT FORM</h5> -->
             <form>
               <div class="large-6 medium-6 cell">
-                  <label>Date</label>
+                  <label>DATE</label>
                   <input type="text" name="date" id="date" placeholder="mm/dd/yy">
                   <p id="unixDate"></p>
                 </div>
+                <br>
+                <br>
               
     
               
                 <div class="large-6 cell">
-                  <label>Location</label>
+                  <label>LOCATION</label>
                   <input id="location" type="text" placeholder="City, State"/>
                   
                     <button type="button" class="success button" id="enter">ENTER</button>
@@ -123,7 +125,7 @@
 
           <ul class="output-table outputData">
             <li class="title">TODAYS DATA</li>
-            <li class="date">[DATE]</li>
+            <li class="date" aria-placeholder="DATE"></li>
             <li>Sunrise:<span id="sunrise"></span></li>
             <li>Sunset:<span id="sunset"></span></li>
             <li>Moonrise:<span id="moonrise"></span></li>
@@ -145,7 +147,7 @@
 
           <ul class="output-table outputData">
             <li class="title">VIEWING FORECAST</li>
-            <li class="date">[DATE]</li>
+            <li class="date" aria-placeholder="DATE"></li>
             <li>Overall Viewing Score:<span id="viewingScore"></span></li>
             <li>Weather:<span id="weather"></span></li>
             <li>Cloud Cover:<span id="cloudCover"></span></li>
@@ -192,7 +194,9 @@
     </div>
   </div>
   <!--end image section-->
-
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation/foundation.js"></script>
+    <script src="js/foundation/foundation.topbar.js"></script>
     <script src="script.js"></script>
     <script src="assets/script.js"></script>
     <script
