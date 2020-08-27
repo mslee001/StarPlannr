@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STARPLANNR IMAGES</title>
+    <title>STARPLANNR LIGHT MAP</title>
 
     <link
       rel="stylesheet"
@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel = "stylesheet" href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/style.css" />
     <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWu9ghvA8cjPUWkmgBwUTgUAVT4hjSMzM&libraries=places"></script>
@@ -37,14 +37,15 @@
       <div data-sticky data-margin-top='0' data-top-anchor="header:bottom" data-btm-anchor="content:bottom">
         <div class="top-bar topbar-sticky-shrink">
           <div class="top-bar-title logo-header">
-            <h4>STARPLANNR</h4>
+            <h4><a href="index.html">STARPLANNR</a></h4>
             <!-- <img src="https://placehold.it/150x38" alt="" /> -->
           </div>
           <div class="top-bar-right">
             <ul class="menu">
-              <li><a href="#">HOME</a></li>
-              <li><a href="#map-block">LIGHT POLLUTION MAP</a></li>
-              <li><a href="#image-block">IMAGES</a></li>
+              <li><a href="index.html">PLANNR</a></li>
+              <li><a href="lightmap.html">LIGHT POLLUTION MAP</a></li>
+              <li><a href="#image-block">NASA IMAGE OF THE DAY</a></li>
+              <li><a href="images.html">SPACE NEWS</a></li>
               
             </ul>
           </div>
@@ -57,8 +58,8 @@
 
   <div class="hero-section">
     <div class="hero-section-text">
-      <h1>STARPLANNR</h1>
-      <h5>Global Light Pollution Map</h5>
+      <h1>LIGHT POLLUTION MAP</h1>
+      <h5>THE ONLY APP TO HELP YOU SEE THE STARS</h5>
     </div>
   </div>
   
@@ -67,89 +68,46 @@
 
   <!-- main container -->
   <body>
-    <div class="grid-container">
 
-
-      
-
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <div class="callout" id="aboutApp">
-            <h3>Welcome to STARPLANNR</h3>
-            <p>To get started, enter your desired date and location and select a variable</p>
-            <h3>Those stars won't gaze at themselves</h3>
-          </div>
-        </div>
-      </div>
-
-      <!-- <div class="grid-x grid-padding-x">
-        <div class="large-4 medium-4 cell">
-          <div class="grid-x grid-padding-x">
-            <div class="large-12 cell"></div>
-          </div>
-
-          <hr/>
-
-          
-
-        </div> -->
-
-        
-       
+    <div class="medium-6-cell large-6-cell">
+      <h3 id="lightMapAbout">INTERACTIVE LIGHT POLLUTION MAP</h3>
+    </div>
     
 
-
-        <!----Image Gallery-->
-
-        <!-- <div class="row main-links">
-          <div class="small-12 medium-4 columns">
-            <div class="title-box">
-              <h4 class="title-box-title">Image 1</h4>
-            </div>
-            <img src="https://placehold.it/400x300">
-          </div>
-          <div class="small-12 medium-4 columns">
-            <div class="title-box">
-              <h4 class="title-box-title">Image 2</h4>
-            </div>
-            <img src="https://placehold.it/400x300">
-          </div>
-          <div class="small-12 medium-4 columns">
-            <div class="title-box">
-              <h4 class="title-box-title">Image 3</h4>
-            </div>
-            <img src="https://placehold.it/400x300">
-          </div>
-        </div> -->
+       <!-- map section-->
+       <div id="map-block">
+        <div class="map-container">
+          <iframe class="responsive-iframe" src="https://www.lightpollutionmap.info/#zoom=3.53&lat=5367736&lon=-11555584&layers=B0FFFFFTFFFFFFFFF"></iframe>
+        </div>
         
-      </div>
     </div>
-
-       
 
     <!-- Image section-->
 
     <div id="image-block">
+      
       <div class="grid-x grid-padding-x" id="">
         <!-- NASA Image of the Day -->
         <div class="medium-6 cell" id="nasa_image">
-          <h2>NASA Image of The Day</h2>
-          <p id="nasa-title"></p>
-          <img id="nasa-iotd"></img>
-          <p id="nasa-explanation"></p>
+          <h2 id="nasa_title">NASA Image of The Day</h2>
+          <div id="nasa-iotd"></div>
+          
+         
       </div>
 
-      <div class="medium-6 cell" id="2image-block">
+      <div class="medium-6 cell" id="image-text-block">
         <div class="medium-6-cell">
-          <img id="" src="https://placehold.it/400x400"></img>
+          <h4 id="nasa-title"></h4>
+          <p id="nasa-explanation"></p>
+          <p id="menuBtn"><a href="#header">RETURN TO MAIN MENU</a></p>
         </div>
       </div>
     </div>
   </div>
   <!--end image section-->
-
-  
-
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation/foundation.js"></script>
+    <script src="js/foundation/foundation.topbar.js"></script>
     <script src="script.js"></script>
     <script src="assets/script.js"></script>
     <script
