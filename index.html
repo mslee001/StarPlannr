@@ -123,7 +123,7 @@
 
           <ul class="output-table outputData">
             <li class="title">TODAYS DATA</li>
-            <li class="date">[DATE]</li>
+            <li class="date" id="today-date">[DATE]</li>
             <li>Sunrise:<span id="sunrise"></span></li>
             <li>Sunset:<span id="sunset"></span></li>
             <li>Moonrise:<span id="moonrise"></span></li>
@@ -145,7 +145,7 @@
 
           <ul class="output-table outputData">
             <li class="title">VIEWING FORECAST</li>
-            <li class="date">[DATE]</li>
+            <li class="date" id="forecast-date">[DATE]</li>
             <li>Overall Viewing Score:<span id="viewingScore"></span></li>
             <li>Weather:<span id="weather"></span></li>
             <li>Cloud Cover:<span id="cloudCover"></span></li>
@@ -178,14 +178,14 @@
       <div class="grid-x grid-padding-x" id="">
         <!-- NASA Image of the Day -->
         <div class="medium-6 cell" id="nasa_image">
-          <img id="nasa-iotd"></img>
-          <p id="nasa-title"></p>
+          <div id="nasa-iotd"></div>
           
          
       </div>
 
       <div class="medium-6 cell" id="2image-block">
         <div class="medium-6-cell">
+          <h4 id="nasa-title"></h4>
           <p id="nasa-explanation"></p>
         </div>
       </div>
