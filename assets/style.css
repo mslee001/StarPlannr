@@ -18,11 +18,11 @@
 .topbar-sticky-shrink {
   padding: 2rem;
   transition: padding 0.25s ease;
-  background: #2c3840;
+  background: #181818;
 }
 
 .topbar-sticky-shrink .menu {
-  background: #2c3840;
+  background: #181818;
 }
 
 .is-stuck .topbar-sticky-shrink {
@@ -45,6 +45,13 @@ color: rgb(219, 156, 48);
 .logo-header {
   color: white;
 }
+a{
+  color: white;
+}
+a:hover {
+  color: rgb(219, 156, 48);
+}
+
 
 
 /* .topbar-sticky-shrink-header {
@@ -60,7 +67,7 @@ color: rgb(219, 156, 48);
 .social-footer {
   color: aliceblue;
   padding: 50px;
-  background: #8a8a8a;
+  background: #181818;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -123,6 +130,9 @@ color: rgb(219, 156, 48);
   margin-top: 50px;
   margin-bottom: 50px;
   text-align: center;
+  border: none;
+  background-color: transparent;
+  color: white;
 }
 
 
@@ -201,9 +211,14 @@ form{
 
 
 /* ------ fonts + overall styling */
-
+body{
+  background-color: #181818;
+}
 form{
-  background: url(https://lh3.googleusercontent.com/Ts_JDDrH_7Iat5_SDixVs02JU4qT-HaQhTSmg0bG6BUcNrdYCpFkW4bTj8y5_csC)
+  
+  background-image: url(https://lh3.googleusercontent.com/Ts_JDDrH_7Iat5_SDixVs02JU4qT-HaQhTSmg0bG6BUcNrdYCpFkW4bTj8y5_csC);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h3{
