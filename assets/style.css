@@ -16,7 +16,8 @@
 
 
 .topbar-sticky-shrink {
-  padding: 2rem;
+  padding-left:50px;
+  padding-right: 50px;
   transition: padding 0.25s ease;
   background: #181818;
   border-bottom: 5px solid #9E871E;
@@ -27,7 +28,7 @@
 }
 
 .is-stuck .topbar-sticky-shrink {
-  padding: 1rem;
+  
   transition: padding 0.25s ease;
 }
 
