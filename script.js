@@ -202,6 +202,30 @@ $(document).ready(function () {
     $("#enter").click(function(event) {
         event.preventDefault();
 
+        //error handling for when the date value is blank
+        if ($("#date").val() == "") {
+            var dateError = $("<p>");
+            dateError.css({"color": "red"});
+            dateError.text("Please select a date");
+            $("#date").parent().append(dateError);
+            setTimeout(function () {
+                dateError.remove();
+                }, 2000);
+            return;
+        }
+
+        //error handling for when the location value is blank
+        if ($("#location").val() == "") {
+            var locationError = $("<p>");
+            locationError.css({"color": "red"});
+            locationError.text("Please select a location");
+            $("#location").parent().append(locationError);
+            setTimeout(function () {
+                locationError.remove();
+                }, 2000);
+            return;
+        }
+
         var place = autocomplete.getPlace(); //gets the Google "place" object
         userCity = place.address_components[0].long_name; //city from place object
         userState= place.address_components[2].long_name; //state from place object
