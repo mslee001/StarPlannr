@@ -39,7 +39,7 @@
 }
 .menu a:hover {
 
-color: rgb(219, 156, 48);
+color: #9E871E;
 }
 
 .logo-header {
@@ -49,7 +49,7 @@ a{
   color: white;
 }
 a:hover {
-  color: rgb(219, 156, 48);
+  color: #9E871E;
 }
 
 
@@ -77,6 +77,7 @@ a:hover {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border-top: 5px solid #9E871E;
 }
 
 .social-footer .social-footer-icons li:last-of-type {
@@ -98,6 +99,8 @@ a:hover {
 
 
 
+
+
 /* HEADER STYLING */
 
 
@@ -115,12 +118,30 @@ a:hover {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+          border-bottom: 5px solid #9E871E;
 }
 
-.hero-section .hero-section-text {
+.hero-section-text {
   color: #fefefe;
   text-shadow: 1px 1px 2px #0a0a0a;
 }
+
+.hero-section-lightmap {
+  background: url("https://www.nasa.gov/sites/default/files/images/324350main_11_full.jpg") 50% no-repeat;
+  background-size: cover;
+  height: 60vh;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 
 
 
@@ -169,7 +190,7 @@ form{
 
 .output-table {
   background-color: #fefefe;
-  border: solid 1px #cacaca;
+  border: none;
   width: 100%;
   list-style-type: none;
   margin-left: -0px;
@@ -187,7 +208,7 @@ form{
 }
 
 .output-table .title {
-  background-color: #2c3840;
+  
   color: #fefefe;
   border-bottom: 0;
   text-align:center;
@@ -195,7 +216,7 @@ form{
 }
 
 .output-table .date {
-  background-color: #e6e6e6;
+  background-color: #9E871E;
   font-size: 30px;
   border-bottom: 0;
   text-align:center;
