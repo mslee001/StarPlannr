@@ -212,6 +212,10 @@ $(document).ready(function () {
 
         $("#forecast-date").text($("#date").val()); //adds the date to the output date field
         $("#today-date").text(today); //adds the date to the todays date field
+
+        //displays the currentData and forecastData boxes
+        $("#forecastData").css({"display":"block"});
+        $("#currentData").css({"display":"block"});
     })
 
 
