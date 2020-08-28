@@ -80,7 +80,7 @@ $(document).ready(function () {
 
         // initiating our chain of ajax calls that are dependant on one another
 
-        var openWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + userCity + "," + userState + "&appid=a45736dce96af4ff411de1c549396bc3&units=imperial"
+        var openWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity + "," + userState + "&appid=a45736dce96af4ff411de1c549396bc3&units=imperial"
         
         
         $.ajax({
@@ -88,28 +88,64 @@ $(document).ready(function () {
             method: "GET"
         }).then(function(response) {
             console.log(response);
-            var currentCityLat = response.city.coord.lat;
-            var currentCityLong = response.city.coord.lon;
-            var targetDateIndex = 0;
-            var currentCityCloud = response.list[targetDateIndex].clouds.all;
-            var currentCityHighF = response.list[targetDateIndex].main.temp_min;
-            var currentCityLowF = response.list[targetDateIndex].main.temp_max;
-
-            if (currentCityCloud < 20) {
-                $("#viewingScore").html('<i class="fas fa-circle good"></i>');
-            } else if (20 <= currentCityCloud < 50) {
-                $("#viewingScore").html('<i class="fas fa-circle fair"></i>');
-            } else if (50 <= currentCityCloud < 70) {
-                $("#viewingScore").html('<i class="fas fa-circle ok"></i>');
-            } else if (70 <= currentCityCloud) {
-                $("#viewingScore").html('<i class="fas fa-circle bad"></i>');
-            }
-
-            $("#weather").append("   High of " + currentCityHighF + "℉  &  Low of " + currentCityLowF + "℉")
-
-            $("#cloudCover").append("   " + currentCityCloud)
+            var currentCityLat = response.coord.lat;
+            var currentCityLong = response.coord.lon;
 
             getAstronomyApi();
+            getFutureWeatherAPI();
+
+            function getFutureWeatherAPI() {
+                var futureWeatherURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + currentCityLat + "&lon=" + currentCityLong +"&appid=a45736dce96af4ff411de1c549396bc3&units=imperial";
+                
+                $.ajax({
+                    url: futureWeatherURL,
+                    method: "GET"
+                }).then(function(response){
+                    console.log(response);
+
+                    var todaySunrise = new Date(response.daily[0].sunrise * 1000);
+                    var todaySunset = new Date(response.daily[0].sunset * 1000);
+
+                    $("#sunrise").append("   " + todaySunrise.toLocaleTimeString());
+                    $("#sunset").append("   " + todaySunset.toLocaleTimeString());
+
+
+                    var datePickerVal = $("#unixDate").val();
+                    console.log(datePickerVal);
+
+                    var userDate = new Date(datePickerVal*1);
+                    var userDateString = userDate.toLocaleDateString();
+
+                    for ( var i = 0 ; i < 8 ; i++ ){
+                        var compValue = response.daily[i].dt;
+                        var compDate = new Date(compValue*1000);
+                        var compDateString = compDate.toLocaleDateString();
+
+                        if (compDateString == userDateString) {
+                            var futureHigh = response.daily[i].temp.max;
+                            var futureLow = response.daily[i].temp.min;
+                            var futureSunrise = new Date(response.daily[i].sunrise * 1000);
+                            var futureSunset = new Date(response.daily[i].sunset * 1000);
+                            var futureCloud = response.daily[i].clouds;
+
+                            if (futureCloud < 20) {
+                                $("#viewingScore").html('<i class="fas fa-circle good"></i>');
+                            } else if (20 <= futureCloud && futureCloud < 50) {
+                                $("#viewingScore").html('<i class="fas fa-circle fair"></i>');
+                            } else if (50 <= futureCloud && futureCloud < 70) {
+                                $("#viewingScore").html('<i class="fas fa-circle ok"></i>');
+                            } else if (70 <= futureCloud) {
+                                $("#viewingScore").html('<i class="fas fa-circle bad"></i>');
+                            }
+
+                            $("#cloudCover").append("   " + futureCloud + "%")
+                            $("#weather").append("   High of " + futureHigh + "℉  &  Low of " + futureLow + "℉")
+                            $("#future-sunrise").append("   " + futureSunrise.toLocaleTimeString());
+                            $("#future-sunset").append("   " + futureSunset.toLocaleTimeString());
+                        }
+                    }
+                })
+            }
 
             function getAstronomyApi(){
                 var astronomyApiURL = "https://api.ipgeolocation.io/astronomy?apiKey=79db4abf6eac4f4099b21fe90a3ff23e&lat=" + currentCityLat + "&long=" + currentCityLong
@@ -122,25 +158,9 @@ $(document).ready(function () {
                 }).then(function(response){
                     $("#moonrise").append("   " + response.moonrise);
                     $("#moonset").append("   " + response.moonset);
-                    $("#sunrise").append("   " + response.sunrise);
-                    $("#sunset").append("   " + response.sunset);
                     console.log(response);  
                 });
 
-                var issPassesURL = "http://api.open-notify.org/iss-pass.json?lat=" + currentCityLat + "&lon=" + currentCityLong + "&n=3"
-
-                $.ajax({
-                    url: issPassesURL,
-                    method: "GET"
-                }).then(function(response){
-                    var firstResponse = moment(response.response[0].risetime).format('MMMM Do YYYY, h:mm a')
-                    var secondResponse = moment(response.response[1].risetime).format('MMMM Do YYYY, h:mm a')
-                    var thirdResponse = moment(response.response[2].risetime).format('MMMM Do YYYY, h:mm a')
-
-                    $("#iss-passes").append("   The next ISS pass will begin at " + firstResponse + 
-                    "    The following ISS pass will begin at " + secondResponse +
-                    "   The following will begin at " + thirdResponse );
-                })
             };
         })
     }    
@@ -184,6 +204,7 @@ $(document).ready(function () {
         texturize	:true, 
     }
 
+
     //function to clear the output fields so the values don't keep appending to the fields
     function clearOutput() {
         $("#viewingScore").text("");
@@ -191,6 +212,8 @@ $(document).ready(function () {
         $("#cloudCover").text("");
         $("#sunrise").text("");
         $("#sunset").text("");
+        $("#future-sunrise").text("");
+        $("#future-sunset").text("");
         $("#moonrise").text("");
         $("#moonset").text("");
         $("#moonPhase").text("");
