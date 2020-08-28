@@ -253,6 +253,14 @@ span#sunset {
   color: darkorange;
 }
 
+span#future-sunrise {
+  color: darkorange;
+}
+
+span#future-sunset {
+  color: darkorange;
+}
+
 span#moonrise {
   color: darkblue;
 }
@@ -539,6 +547,27 @@ label{
             order: 2;
   }
 }
+
+/* Class of the viewing score item */
+
+.good {
+  color: green;
+}
+
+.fair {
+  color: yellow;
+}
+
+.ok {
+  color: orange;
+}
+
+.bad {
+  color: red;
+}
+
+
+
 
 
 
