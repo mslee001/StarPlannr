@@ -257,6 +257,10 @@ form{
   background-size: cover;
 }
 
+h1 {
+  font-family: 'Days One', sans-serif;
+}
+
 h3{
     font-family: 'Codystar', cursive;
   font-weight: bold;
