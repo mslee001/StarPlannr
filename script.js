@@ -156,9 +156,34 @@ $(document).ready(function () {
                     url: astronomyApiURL,
                     method: "GET"
                 }).then(function(response){
-                    $("#moonrise").append("   " + response.moonrise);
-                    $("#moonset").append("   " + response.moonset);
-                    console.log(response);  
+
+                    var moonriseHour = response.moonrise.slice(0,2);
+                    var moonriseMin = response.moonrise.slice(3,5);
+
+                    if (moonriseHour == 0) {
+                        $("#moonrise").append("   12:" + moonriseMin + ":00 AM")
+                     } else if ( moonriseHour > 0 && moonriseHour < 12) {
+                         $("#moonrise").append("   " + moonriseHour + ":" + moonriseMin + ":00 AM")
+                     } else if (moonriseHour == 12){
+                         $("#moonrise").append("   " + moonriseHour + ":" + moonriseMin + ":00 PM")
+                     } else if (moonriseHour > 12) {
+                        var displayHour = moonriseHour - 12
+                        $("#moonrise").append("   " + displayHour + ":" + moonriseMin + ":00 PM") 
+                    }
+                    
+
+                    var moonsetHour = response.moonset.slice(0,2);
+                    var moonsetMin = response.moonset.slice(3,5);
+                    if (moonsetHour == 0) {
+                        $("#moonset").append("   12:" + moonsetMin + ":00 AM")
+                     } else if ( moonsetHour > 0 && moonsetHour < 12) {
+                         $("#moonset").append("   " + moonsetHour + ":" + moonsetMin + ":00 AM")
+                     } else if (moonsetHour == 12){
+                         $("#moonset").append("   " + moonsetHour + ":" + moonsetMin + ":00 PM")
+                     } else if (moonsetHour > 12) {
+                        var displayHourMS = moonsetHour - 12
+                        $("#moonset").append("   " + displayHourMS + ":" + moonsetMin + ":00 PM") 
+                    } 
                 });
 
             };
