@@ -9,20 +9,38 @@ will be good or bad.
 ## App functionality
 
 The user will have the option to select a date as well as their choice of location. The user
-will be presented with the weather, cloud cover opacity percentage, sunrise, sunset, moonrise, moonset, 
+will be presented with the weather, cloud cover, sunrise, sunset, moonrise, moonset, 
 location of the ISS, as well as providing an overall designation of the night's suitability for stargazing.
 
+The date selection is supported with a calendar date-picker, built using jQuery UI. 
 
-This app will be built using the Foundation framework.
+The location selection autofil is supported by Google.
 
+This app is built using the Foundation CSS framework.
 
-The following APIs will be used to populate our data-fields:
-https://ipgeolocation.io/
+The following APIs are used to call our data:
 
- * sunrise
- * sunset
- * moonrise
- * moonset
+https://api.nasa.gov/
+  * image of the day
+
+https://openweathermap.org/api
+  * sunrise
+  * sunset
+  * cloud cover
+  * weather
+
+https://ipgeolocation.io
+  * moonrise
+  * moonset
+ 
+http://www.wdisseny.com/lluna/?lang=en 
+  * moon phase & image
+  
+  
+  
+  
+  
+
 
 
 
